@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: progress-tracking
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: progress-tracking
+  template:
+    metadata:
+      labels:
+        app: progress-tracking
+    spec:
+      containers:
+      - name: progress-tracking
+        image: akashganguly/fluencyfusionprogresstracker:v5
+        ports:
+        - containerPort: 80
